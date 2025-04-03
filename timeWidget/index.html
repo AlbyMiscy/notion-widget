@@ -77,13 +77,6 @@
             // Impostiamo l'ora e la data nell'elemento del DOM
             document.getElementById('time').innerText = hours + ":" + minutes + ":" + seconds;
             document.getElementById('date').innerText = dateString;
-
-            // Animazione per il cambiamento del tempo
-            var clockElement = document.getElementById('clock');
-            clockElement.style.transform = 'scale(1.1)';
-            setTimeout(function() {
-                clockElement.style.transform = 'scale(1)';
-            }, 500);
         }
 
         // Aggiorna l'orologio ogni secondo
