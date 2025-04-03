@@ -18,19 +18,19 @@
             background: transparent; /* Sfondo trasparente per evitare spazi extra */
         }
 
-        /* Orologio stilizzato con dimensioni fisse */
+        /* Orologio stilizzato con dimensioni responsivi */
         #clock {
-            font-size: 80px;
+            font-size: 10vw; /* La dimensione del font dipende dalla larghezza della finestra */
             font-weight: bold;
             color: #fff;
             background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente per l'orologio */
-            padding: 40px 60px;
+            padding: 5vw 8vw; /* Aggiustamento dinamico del padding */
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-align: center;
             letter-spacing: 2px;
-            width: 300px;  /* Larghezza fissa */
-            height: 150px; /* Altezza fissa */
+            width: auto; /* Larghezza automatica, si adatta al contenuto */
+            height: auto; /* Altezza automatica, si adatta al contenuto */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,7 +42,7 @@
         #clock span {
             display: block;
             margin-top: 10px;
-            font-size: 30px;
+            font-size: 2vw; /* La dimensione del font della data dipende dalla larghezza della finestra */
             opacity: 0.8;
         }
     </style>
