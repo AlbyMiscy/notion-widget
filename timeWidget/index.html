@@ -5,45 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orologio in Tempo Reale</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+        /* Rimuoviamo margini e padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Rimuove qualsiasi barra di scorrimento */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            background: transparent; /* Sfondo trasparente per evitare spazi extra */
         }
+
+        /* Orologio stilizzato con dimensioni fisse */
         #clock {
-            font-size: 60px;
-            color: #333;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 80px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente per l'orologio */
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            letter-spacing: 2px;
+            width: 300px;  /* Larghezza fissa */
+            height: 150px; /* Altezza fissa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        /* Data sotto l'orologio */
+        #clock span {
+            display: block;
+            margin-top: 10px;
+            font-size: 30px;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <div id="clock"></div>
+    <div id="clock">
+        <span id="time"></span>
+        <span id="date"></span>
+    </div>
 
     <script>
-        // Funzione per aggiornare l'ora ogni secondo
+        // Funzione per ottenere la data e l'ora attuale
         function updateClock() {
             var now = new Date();
             var hours = now.getHours();
             var minutes = now.getMinutes();
             var seconds = now.getSeconds();
+            var day = now.getDate();
+            var month = now.getMonth() + 1; // Mese inizia da 0
+            var year = now.getFullYear();
 
             // Formattazione per avere due cifre per ore, minuti e secondi
             hours = (hours < 10) ? '0' + hours : hours;
             minutes = (minutes < 10) ? '0' + minutes : minutes;
             seconds = (seconds < 10) ? '0' + seconds : seconds;
 
-            var timeString = hours + ":" + minutes + ":" + seconds;
+            // Formattazione della data
+            month = (month < 10) ? '0' + month : month;
+            day = (day < 10) ? '0' + day : day;
+            var dateString = day + '/' + month + '/' + year;
 
-            // Impostiamo l'orario nell'elemento del DOM
-            document.getElementById('clock').innerText = timeString;
+            // Impostiamo l'ora e la data nell'elemento del DOM
+            document.getElementById('time').innerText = hours + ":" + minutes + ":" + seconds;
+            document.getElementById('date').innerText = dateString;
+
+            // Animazione per il cambiamento del tempo
+            var clockElement = document.getElementById('clock');
+            clockElement.style.transform = 'scale(1.1)';
+            setTimeout(function() {
+                clockElement.style.transform = 'scale(1)';
+            }, 500);
         }
 
         // Aggiorna l'orologio ogni secondo
