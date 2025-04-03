@@ -12,20 +12,13 @@
             height: 100%;
             width: 100%;
             overflow: hidden; /* Rimuove qualsiasi barra di scorrimento */
-        }
-
-        /* Gradiente di sfondo per la pagina */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe); /* Gradiente */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            width: 100%;
+            background: transparent; /* Sfondo trasparente per evitare spazi extra */
         }
 
-        /* Orologio stilizzato */
+        /* Orologio stilizzato con dimensioni fisse */
         #clock {
             font-size: 80px;
             font-weight: bold;
@@ -36,6 +29,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-align: center;
             letter-spacing: 2px;
+            width: 300px;  /* Larghezza fissa */
+            height: 150px; /* Altezza fissa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
