@@ -5,21 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orologio in Tempo Reale</title>
     <style>
+        /* Rimuoviamo margini e padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Rimuove qualsiasi barra di scorrimento */
+        }
+
+        /* Gradiente di sfondo per la pagina */
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+            background: linear-gradient(to right, #4facfe, #00f2fe); /* Gradiente */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
+            height: 100%;
+            width: 100%;
         }
+
+        /* Orologio stilizzato */
         #clock {
             font-size: 80px;
             font-weight: bold;
             color: #fff;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente per l'orologio */
             padding: 40px 60px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -27,6 +38,8 @@
             letter-spacing: 2px;
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
+
+        /* Data sotto l'orologio */
         #clock span {
             display: block;
             margin-top: 10px;
